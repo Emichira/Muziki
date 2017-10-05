@@ -20,6 +20,7 @@ import java.util.List;
 
 import ke.co.emichira.muziki.R;
 import ke.co.emichira.muziki.fragments.AlbumFragment;
+import ke.co.emichira.muziki.fragments.ArtistFragment;
 import ke.co.emichira.muziki.fragments.SongsFragment;
 
 
@@ -52,8 +53,6 @@ public class MainActivity extends AppCompatActivity {
             setupViewPager(viewPager);
         }
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
     }
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         Adapter adapter = new Adapter(getSupportFragmentManager());
         adapter.addFragment(new AlbumFragment(), "ALBUMS");
         adapter.addFragment(new SongsFragment(), "SONGS");
-        adapter.addFragment(new SongsFragment(), "ARTISTS");
+        adapter.addFragment(new ArtistFragment(), "ARTISTS");
         viewPager.setAdapter(adapter);
     }
 

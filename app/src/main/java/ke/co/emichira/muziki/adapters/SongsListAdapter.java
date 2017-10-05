@@ -9,8 +9,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import ke.co.emichira.muziki.models.Song;
 import ke.co.emichira.muziki.R;
+import ke.co.emichira.muziki.models.Song;
+
 /**
  * Created by michira on 10/3/17.
  */
@@ -37,7 +38,7 @@ public class SongsListAdapter extends RecyclerView.Adapter<SongsListAdapter.AllS
         Song allSongsItem = allSongsList.get(i);
 
         allSongsGridHolder.title.setText(allSongsItem.getTitle());
-        allSongsGridHolder.artist.setText(allSongsItem.getArtist());
+//        allSongsGridHolder.artist.setText(allSongsItem.getArtist());
 
     }
 

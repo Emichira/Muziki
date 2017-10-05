@@ -7,9 +7,15 @@ package ke.co.emichira.muziki.models;
 public class Song {
 
 
-    private long id;
-    private String title;
-    private String artist;
+    public final long id;
+    public final String title;
+    public final String artist;
+
+    public Song() {
+        this.id = -1;
+        this.title = "";
+        this.artist = "";
+    }
 
 
     public Song(long songID, String songTitle, String songArtist) {
