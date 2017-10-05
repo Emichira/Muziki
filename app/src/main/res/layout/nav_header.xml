@@ -23,12 +23,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Username"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/song_title"
             android:textSize="18sp"
             android:textColor="#ffffff"

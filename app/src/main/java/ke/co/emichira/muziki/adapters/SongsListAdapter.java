@@ -16,7 +16,7 @@ import ke.co.emichira.muziki.models.Song;
  * Created by michira on 10/3/17.
  */
 
-public class SongsListAdapter extends RecyclerView.Adapter<SongsListAdapter.AllSongsGridHolder> {
+public class SongsListAdapter extends RecyclerView.Adapter<SongsListAdapter.ItemHolder> {
 
     private List<Song> allSongsList;
     private Context mContext;
@@ -27,18 +27,18 @@ public class SongsListAdapter extends RecyclerView.Adapter<SongsListAdapter.AllS
     }
 
     @Override
-    public AllSongsGridHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public ItemHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_song, null);
-        AllSongsGridHolder ml = new AllSongsGridHolder(v);
+        ItemHolder ml = new ItemHolder(v);
         return ml;
     }
 
     @Override
-    public void onBindViewHolder(AllSongsGridHolder allSongsGridHolder, int i) {
-        Song allSongsItem = allSongsList.get(i);
+    public void onBindViewHolder(ItemHolder itemHolder, int i) {
+        Song localItem = allSongsList.get(i);
 
-        allSongsGridHolder.title.setText(allSongsItem.getTitle());
-//        allSongsGridHolder.artist.setText(allSongsItem.getArtist());
+        itemHolder.title.setText(localItem.title);
+        itemHolder.artist.setText(localItem.artist);
 
     }
 
@@ -48,10 +48,10 @@ public class SongsListAdapter extends RecyclerView.Adapter<SongsListAdapter.AllS
     }
 
 
-    public class AllSongsGridHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         protected TextView title,artist;
 
-        public AllSongsGridHolder(View view) {
+        public ItemHolder(View view) {
             super(view);
             this.title = (TextView) view.findViewById(R.id.song_title);
             this.artist = (TextView) view.findViewById(R.id.song_artist);
