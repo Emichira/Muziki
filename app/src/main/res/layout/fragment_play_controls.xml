@@ -61,6 +61,8 @@
         android:src="@drawable/ic_play_arrow_black_36dp"
         android:tintMode="src_in"
         android:tint="@color/bt_accent"/>
-        <!--android:background="?android:selectableItemBackgroundBorderless"-->
+
+    <!--requires api level 21 and above-->
+    <!--android:background="?android:selectableItemBackgroundBorderless"-->
 
 </RelativeLayout>
