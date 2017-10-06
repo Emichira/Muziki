@@ -1,15 +1,26 @@
 package ke.co.emichira.muziki.ui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import ke.co.emichira.muziki.R;
+import android.support.v7.app.AppCompatActivity;
 
 public class MediaPlayerActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_media_player);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+
     }
 }

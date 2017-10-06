@@ -10,7 +10,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,15 +20,18 @@ import java.util.List;
 import ke.co.emichira.muziki.R;
 import ke.co.emichira.muziki.fragments.AlbumFragment;
 import ke.co.emichira.muziki.fragments.ArtistFragment;
+import ke.co.emichira.muziki.fragments.PlayControlsFragment;
 import ke.co.emichira.muziki.fragments.SongsFragment;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends MediaPlayerActivity {
 
     private DrawerLayout mDrawerLayout;
+    PlayControlsFragment mControlsFragment;
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
@@ -55,6 +57,12 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        mControlsFragment = (PlayControlsFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.fragment_play_controls);
+        if (mControlsFragment == null) {
+            throw new IllegalStateException("Mising fragment with id 'controls'. Cannot continue.");
+        }
     }
 
 
@@ -121,6 +129,24 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return mFragmentTitles.get(position);
         }
+    }
+
+    public void showPlayControls() {
+
+        getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(
+                        R.anim.slide_in_from_bottom, R.anim.slide_out_to_bottom,
+                        R.anim.slide_in_from_bottom, R.anim.slide_out_to_bottom)
+                .show(mControlsFragment)
+                .commit();
+
+    }
+
+    public void hidePlayControls() {
+
+        getSupportFragmentManager().beginTransaction()
+                .hide(mControlsFragment)
+                .commit();
     }
 
 
