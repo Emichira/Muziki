@@ -7,24 +7,30 @@ package ke.co.emichira.muziki.models;
 public class Song {
 
 
-    public final long id;
-    public final String title;
-    public final String artist;
-
-    public Song() {
-        this.id = -1;
-        this.title = "";
-        this.artist = "";
-    }
+    public long songId;
+    public String title;
+    public String artist;
+    public String album;
+    public long albumId;
+    public int duration;
+    public int year;
 
 
-    public Song(long songID, String songTitle, String songArtist) {
-        id=songID;
+    public Song(long songID, String songTitle, String songArtist,String songAlbum,long songalbumId,int songDuration) {
+        songId=songID;
         title=songTitle;
         artist=songArtist;
+        album=songAlbum;
+        albumId=songalbumId;
+        duration=songDuration;
+
     }
 
-    public long getID(){return id;}
+    public long getSongID(){return songId;}
     public String getTitle(){return title;}
     public String getArtist(){return artist;}
+    public String getAlbum(){return album;}
+    public long getAlbumId(){return albumId;}
+    public int getDuration(){return duration;}
+    public int getYear(){return year;}
 }

@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ke.co.emichira.muziki.R;
-import ke.co.emichira.muziki.fragments.AlbumFragment;
 import ke.co.emichira.muziki.fragments.ArtistFragment;
 import ke.co.emichira.muziki.fragments.PlayControlsFragment;
 import ke.co.emichira.muziki.fragments.SongsFragment;
@@ -84,8 +83,8 @@ public class MainActivity extends MediaPlayerActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getSupportFragmentManager());
-        adapter.addFragment(new AlbumFragment(), "ALBUMS");
         adapter.addFragment(new SongsFragment(), "SONGS");
+        adapter.addFragment(new SongsFragment(), "ALBUMS");
         adapter.addFragment(new ArtistFragment(), "ARTISTS");
         viewPager.setAdapter(adapter);
     }
