@@ -1,5 +1,6 @@
 package ke.co.emichira.muziki.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,7 +13,6 @@ import java.util.List;
 
 import ke.co.emichira.muziki.R;
 import ke.co.emichira.muziki.models.Song;
-import ke.co.emichira.muziki.utils.ArtworkUtils;
 
 /**
  * Created by michira on 10/3/17.
@@ -20,12 +20,13 @@ import ke.co.emichira.muziki.utils.ArtworkUtils;
 
 public class SongsListAdapter extends RecyclerView.Adapter<SongsListAdapter.ItemHolder> {
 
-    private List<Song> allSongsList;
+    private List<Song> arraylist;
     private Context mContext;
 
-    public SongsListAdapter(Context context, List<Song> allSongsList) {
-        this.allSongsList = allSongsList;
+    public SongsListAdapter(Activity context, List<Song> arraylist) {
+        this.arraylist = arraylist;
         this.mContext = context;
+
     }
 
     @Override
@@ -37,20 +38,22 @@ public class SongsListAdapter extends RecyclerView.Adapter<SongsListAdapter.Item
 
     @Override
     public void onBindViewHolder(ItemHolder itemHolder, int i) {
-        Song localItem = allSongsList.get(i);
+        Song localItem = arraylist.get(i);
 
         itemHolder.title.setText(localItem.title);
-        itemHolder.artist.setText(localItem.artist);
-//        itemHolder.albumArt.setImageBitmap(ArtworkUtils.getArtworkFromFile(mContext, localItem.getAlbumId(),25,25));
-        ArtworkUtils.loadBitmap(mContext,itemHolder.albumArt,localItem.getAlbumId(),25,25);
+        itemHolder.artist.setText(localItem.artistName);
 
+//        ArtworkUtils.loadBitmap(mContext, itemHolder.albumArt, localItem.getAlbumId(), 25, 25);
+//        mArtworkFetcher.loadAlbumImage(localItem.getArtist(), localItem.getAlbum(), localItem.getAlbumId(),
+//                itemHolder.albumArt);
 
+//        ImageLoader.getInstance().displayImage(MuzikiUtils.getAlbumArtUri(localItem.albumId).toString(), itemHolder.albumArt, new DisplayImageOptions.Builder().cacheInMemory(true).showImageOnFail(R.drawable.ic_launcher).resetViewBeforeLoading(true).build());
 
     }
 
     @Override
     public int getItemCount() {
-        return (null != allSongsList ? allSongsList.size() : 0);
+        return (null != arraylist ? arraylist.size() : 0);
     }
 
 
@@ -58,13 +61,11 @@ public class SongsListAdapter extends RecyclerView.Adapter<SongsListAdapter.Item
         protected TextView title,artist;
         protected ImageView albumArt;
 
-
         public ItemHolder(View view) {
             super(view);
             this.title = (TextView) view.findViewById(R.id.song_title);
             this.artist = (TextView) view.findViewById(R.id.song_artist);
             this.albumArt=(ImageView) view.findViewById(R.id.albumArt);
-
             view.setOnClickListener(this);
         }
 

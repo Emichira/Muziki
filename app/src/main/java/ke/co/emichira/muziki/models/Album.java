@@ -5,14 +5,15 @@ package ke.co.emichira.muziki.models;
  */
 
 public class Album {
-    public final long artistId;
+    public final int artistId;
     public final String artistName;
-    public final long id;
+    public final int id;
     public final int songCount;
     public final String title;
     public final int year;
 
-    public Album() {
+    public Album()
+    {
         this.id = -1;
         this.title = "";
         this.artistName = "";
@@ -21,7 +22,8 @@ public class Album {
         this.year = -1;
     }
 
-    public Album(long _id, String _title, String _artistName, long _artistId, int _songCount, int _year) {
+    public Album(int _id, String _title, String _artistName, int _artistId, int _songCount, int _year)
+    {
         this.id = _id;
         this.title = _title;
         this.artistName = _artistName;
@@ -29,4 +31,6 @@ public class Album {
         this.songCount = _songCount;
         this.year = _year;
     }
+
+
 }

@@ -6,31 +6,36 @@ package ke.co.emichira.muziki.models;
 
 public class Song {
 
+    public final long albumId;
+    public final String albumName;
+    public final long artistId;
+    public final String artistName;
+    public final int duration;
+    public final long id;
+    public final String title;
+    public final int trackNumber;
 
-    public long songId;
-    public String title;
-    public String artist;
-    public String album;
-    public long albumId;
-    public int duration;
-    public int year;
-
-
-    public Song(long songID, String songTitle, String songArtist,String songAlbum,long songalbumId,int songDuration) {
-        songId=songID;
-        title=songTitle;
-        artist=songArtist;
-        album=songAlbum;
-        albumId=songalbumId;
-        duration=songDuration;
-
+    public Song()
+    {
+        this.id = -1;
+        this.albumId = -1;
+        this.artistId = -1;
+        this.title = "";
+        this.artistName = "";
+        this.albumName = "";
+        this.duration = -1;
+        this.trackNumber = -1;
     }
 
-    public long getSongID(){return songId;}
-    public String getTitle(){return title;}
-    public String getArtist(){return artist;}
-    public String getAlbum(){return album;}
-    public long getAlbumId(){return albumId;}
-    public int getDuration(){return duration;}
-    public int getYear(){return year;}
+    public Song(long _id, long _albumId, long _artistId, String _title, String _artistName, String _albumName, int _duration, int _trackNumber)
+    {
+        this.id = _id;
+        this.albumId = _albumId;
+        this.artistId = _artistId;
+        this.title = _title;
+        this.artistName = _artistName;
+        this.albumName = _albumName;
+        this.duration = _duration;
+        this.trackNumber = _trackNumber;
+    }
 }
