@@ -41,7 +41,9 @@ public class SongsListAdapter extends RecyclerView.Adapter<SongsListAdapter.Item
 
         itemHolder.title.setText(localItem.title);
         itemHolder.artist.setText(localItem.artist);
-        itemHolder.albumArt.setImageBitmap(ArtworkUtils.getArtworkFromFile(mContext, localItem.getAlbumId(),25,25));
+//        itemHolder.albumArt.setImageBitmap(ArtworkUtils.getArtworkFromFile(mContext, localItem.getAlbumId(),25,25));
+        ArtworkUtils.loadBitmap(mContext,itemHolder.albumArt,localItem.getAlbumId(),25,25);
+
 
 
     }

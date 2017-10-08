@@ -83,9 +83,9 @@ public class MainActivity extends MediaPlayerActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getSupportFragmentManager());
-        adapter.addFragment(new SongsFragment(), "SONGS");
         adapter.addFragment(new SongsFragment(), "ALBUMS");
-        adapter.addFragment(new ArtistFragment(), "ARTISTS");
+        adapter.addFragment(new SongsFragment(), "SONGS");
+        adapter.addFragment(new ArtistFragment(), "STREAM ONLINE");
         viewPager.setAdapter(adapter);
     }
 
