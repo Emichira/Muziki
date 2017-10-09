@@ -9,10 +9,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import java.util.List;
 
 import ke.co.emichira.muziki.R;
 import ke.co.emichira.muziki.models.Song;
+import ke.co.emichira.muziki.utils.MuzikiUtils;
 
 /**
  * Created by michira on 10/3/17.
@@ -43,11 +47,12 @@ public class SongsListAdapter extends RecyclerView.Adapter<SongsListAdapter.Item
         itemHolder.title.setText(localItem.title);
         itemHolder.artist.setText(localItem.artistName);
 
-//        ArtworkUtils.loadBitmap(mContext, itemHolder.albumArt, localItem.getAlbumId(), 25, 25);
-//        mArtworkFetcher.loadAlbumImage(localItem.getArtist(), localItem.getAlbum(), localItem.getAlbumId(),
-//                itemHolder.albumArt);
-
-//        ImageLoader.getInstance().displayImage(MuzikiUtils.getAlbumArtUri(localItem.albumId).toString(), itemHolder.albumArt, new DisplayImageOptions.Builder().cacheInMemory(true).showImageOnFail(R.drawable.ic_launcher).resetViewBeforeLoading(true).build());
+        ImageLoader.getInstance().displayImage(MuzikiUtils.getAlbumArtUri(localItem.albumId).toString(), itemHolder.albumArt, new DisplayImageOptions
+                .Builder()
+                .cacheInMemory(true)
+                .showImageOnFail(R.drawable.ic_launcher)
+                .resetViewBeforeLoading(true)
+                .build());
 
     }
 

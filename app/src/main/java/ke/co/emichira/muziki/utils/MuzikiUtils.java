@@ -9,7 +9,8 @@ import android.net.Uri;
 
 public class MuzikiUtils {
 
-    public static Uri getAlbumArtUri(long albumId) {
-        return ContentUris.withAppendedId(Uri.parse("content://media/external/audio/albumart"), albumId);
+    public static Uri getAlbumArtUri(long paramInt)
+    {
+        return ContentUris.withAppendedId(Uri.parse("content://media/external/audio/albumart"), paramInt);
     }
 }
